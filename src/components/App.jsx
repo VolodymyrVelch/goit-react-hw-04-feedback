@@ -7,38 +7,31 @@ state = {
   neutral: 0,
   bad: 0
   }
-  clickGoodBtn = () => {
+
+  clickBtn = (e) => {
+    const key = e.currentTarget.name;
     this.setState(prevState => ({
-      good: prevState.good += 1,
-    }));
-  }
-  clickNaturalBtn = () => {
-    this.setState(prevState => ({
-      neutral: prevState.neutral += 1,
-    }));
-  }
-  clickBadBtn = () => {
-    this.setState(prevState => ({
-      bad: prevState.bad += 1,
+      [key] : prevState[key] += 1,
     }));
   }
   
   
   countTotalFeedback() {
-    return Object.values(this.state).reduce((a,b )=>a+b)
+    return Object.values(this.state).reduce((akk,val )=>akk+val)
    }
   countPositiveFeedbackPercentage() { 
     return parseInt((this.state.good/this.countTotalFeedback())*100) 
   };
-  
+
   render() {
+    // const {bad, neutral, good} = this.state
     return (
       <Main>
         <h2>Please leave feedback</h2>
         <BtnBlock>
-          <FeddbackBtn type="button" onClick={this.clickGoodBtn}>Good</FeddbackBtn>
-          <FeddbackBtn type="button" onClick={this.clickNaturalBtn}>Netural</FeddbackBtn>
-          <FeddbackBtn type="button" onClick={this.clickBadBtn}>Bad</FeddbackBtn>
+          <FeddbackBtn  type="button" name="good"  onClick={this.clickBtn}>Good</FeddbackBtn>
+          <FeddbackBtn type="button" name="neutral" onClick={this.clickBtn}>Netural</FeddbackBtn>
+          <FeddbackBtn type="button" name="bad" onClick={this.clickBtn}>Bad</FeddbackBtn>
         </BtnBlock>
         <section title="Statistics">
           {this.countTotalFeedback() > 0 ? (
