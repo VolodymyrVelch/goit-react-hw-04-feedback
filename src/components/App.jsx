@@ -28,7 +28,7 @@ state = {
   };
 
   render() {
-    // const {bad, neutral, good} = this.state
+
     return (
       <Main>
         <Section title="Please leave feedback">
