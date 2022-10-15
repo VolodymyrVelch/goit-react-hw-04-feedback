@@ -3,7 +3,7 @@ import React from "react";
 import { StatList, Stats } from './Statistics.styled';
 import PropTypes from 'prop-types';
 
-export const Statistics = ({good, neutral, bad,total, positivePercentage})=>{
+export const Statistics = ({good, neutral, bad,total, positivePercentage=0})=>{
     return ( <div>
                <StatList>
                  <Stats>Good: {good }</Stats>
@@ -15,10 +15,10 @@ export const Statistics = ({good, neutral, bad,total, positivePercentage})=>{
             </div>)
 }
 
-Statistics.propTypes = {
-    good: PropTypes.number.isRequired,
-    neutral: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
-    total: PropTypes.number.isRequired,
-    positivePercentage: PropTypes.number.isRequired
-}
+// Statistics.propTypes = {
+//     good: PropTypes.number.isRequired,
+//     neutral: PropTypes.number.isRequired,
+//     bad: PropTypes.number.isRequired,
+//     total: PropTypes.number.isRequired,
+//     positivePercentage: PropTypes.number.isRequired
+// }
