@@ -8,22 +8,22 @@ import { Section } from "./section/Section";
 
 
 export function App() {
-const [good, setgood] = useState(0);
-const [neutral, setneutral] = useState(0);
-const [bad, setbad] = useState(0);  
-  
+const [good, setGood] = useState(0);
+const [neutral, setNeutral] = useState(0);
+const [bad, setBad] = useState(0);  
+
 const feedback = ['good', 'neutral', 'bad']
 
 const clickBtn = (e) => {
   switch (e.currentTarget.name) {
         case ("good"):
-        setgood(prevstate=>prevstate+1);
+        setGood(prevState=>prevState+1);
         break;
         case ("bad"):
-        setbad(prevstate=>prevstate+1);
+        setBad(prevState=>prevState+1);
         break;
         case ("neutral"):
-        setneutral(prevstate=>prevstate+1);
+        setNeutral(prevState=>prevState+1);
       break;
       default:
       return
